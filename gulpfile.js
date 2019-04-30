@@ -6,7 +6,7 @@ const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 
 function style() {
-    return gulp.src('./scss/**/*.scss')
+    return gulp.src('scss/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: 'compressed' 
@@ -18,20 +18,21 @@ function style() {
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('./css'))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('dist/css'))
         .pipe(browserSync.stream())
-  } 
+}
 
 function watch() {
     browserSync.init({
         server: {
-            baseDir: './'
+            baseDir: 'dist/'
         }
     });
-    gulp.watch('./scss/**/*.scss', style);
-    gulp.watch('./**/*.html').on('change', browserSync.reload);
-    gulp.watch('./js/**/*.js').on('change', browserSync.reload);
+
+    gulp.watch('scss/**/*.scss', style);
+    gulp.watch('dist/*.html').on('change', browserSync.reload);
+    gulp.watch('dist/js/**/*.js').on('change', browserSync.reload);
 }
   
 exports.style = style;

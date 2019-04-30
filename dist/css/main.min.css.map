@@ -1,0 +1,1 @@
+{"version":3,"sources":["_reset.scss"],"names":[],"mappings":"AAAA,qBAGI,QAAS,CACT,SAAU,CACV,6BAAY,CAAZ,qBAAsB","file":"main.min.css","sourcesContent":["*,\r\n*::before,\r\n*::after {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n}"]}
